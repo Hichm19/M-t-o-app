@@ -1,0 +1,184 @@
+/* Reset moderne */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f8f9fa;
+  }
+  
+  .weather-container {
+    background: rgba(15, 30, 45, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .weather-container:hover {
+    transform: translateY(-5px);
+  }
+  
+  h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    position: relative;
+  }
+  
+  h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    margin: 0.5rem auto 0;
+    border-radius: 3px;
+  }
+  
+  .form-group {
+    margin: 2rem 0;
+    position: relative;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.2);
+  }
+  
+  .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .search-btn {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  
+  .search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
+  }
+  
+  .box-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+  
+  .box:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+  }
+  
+  /* Icônes météo */
+  .box::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 0.5rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
+  }
+  
+  #city::before {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/484/484167.png');
+  }
+  
+  #temp::before {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/7794/7794269.png');
+  }
+  
+  #humidity::before {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1585/1585261.png');
+  }
+  
+  #wind::before {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/172/172827.png');
+  }
+  
+  /* Animation subtile */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .box-container > div {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .box-container > div:nth-child(1) { animation-delay: 0.1s; }
+  .box-container > div:nth-child(2) { animation-delay: 0.2s; }
+  .box-container > div:nth-child(3) { animation-delay: 0.3s; }
+  .box-container > div:nth-child(4) { animation-delay: 0.4s; }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .weather-container {
+      padding: 1.5rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .box-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .box {
+      padding: 1rem;
+    }
+  }
